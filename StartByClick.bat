@@ -7,5 +7,10 @@ echo "####################"
 echo "Starting Batch Script"
 echo "####################"
 CD %POWERSHELL_PATH%
-Powershell -ExecutionPolicy Bypass -command "& '%HOME%./Powershell/HelloWorld.ps1' '%HOME%'"
+@REM If SayHello, we don't need a second parameter
+Powershell -ExecutionPolicy Bypass -command "& '%HOME%./Powershell/DynamicParam.ps1' 'SayHello'"
+@REM If ShowMessage, we need the Message as a second parameter, Message is given in code
+Powershell -ExecutionPolicy Bypass -command "& '%HOME%./Powershell/DynamicParam.ps1' 'ShowMessage' 'Message was given in Code'"
+@REM If ShowMessage, we need the Message as a second parameterm, Message is given in terminal
+Powershell -ExecutionPolicy Bypass -command "& '%HOME%./Powershell/DynamicParam.ps1' 'ShowMessage'"
 pause
